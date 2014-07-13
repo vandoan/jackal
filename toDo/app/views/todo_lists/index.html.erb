@@ -1,6 +1,6 @@
 <%- model_class = TodoList -%>
 <div class="page-header">
-  <h1><%=t '.title', :default => model_class.model_name.human.pluralize.titleize %></h1>
+  <h1>Things to Do</h1>
 </div>
 <table class="table table-striped">
   <thead>
@@ -18,14 +18,14 @@
         <td><%= link_to todo_list.id, todo_list_path(todo_list) %></td>
         <td><%= todo_list.title %></td>
         <td><%= todo_list.description %></td>
-        <td><%=l todo_list.created_at %></td>
+        <td><%= todo_list.created_at %></td>
         <td>
           <%= link_to t('.edit', :default => t("helpers.links.edit")),
                       edit_todo_list_path(todo_list), :class => 'btn btn-mini' %>
-          <%= link_to t('.destroy', :default => t("helpers.links.destroy")),
+          <%= link_to  t('.destroy', :default => t("helpers.links.destroy")), 
                       todo_list_path(todo_list),
-                      :method => :delete,
-                      :data => { :confirm => t('.confirm', :default => t("helpers.links.confirm", :default => 'Are you sure?')) },
+                      :method => :delete, 
+                      :data => { :confirm => t('.confirm', :default => t("helpers.links.confirm", :default => 'Yeah?')) },
                       :class => 'btn btn-mini btn-danger' %>
         </td>
       </tr>
