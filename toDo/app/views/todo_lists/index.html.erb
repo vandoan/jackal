@@ -9,17 +9,17 @@
       <th><%= model_class.human_attribute_name(:title) %></th>
       <th><%= model_class.human_attribute_name(:description) %></th>
       <th><%= model_class.human_attribute_name(:created_at) %></th>
-      <th><%=t '.actions', :default => t("helpers.actions") %></th>
+      <th class="inv"><%=t '.actions', :default => t("helpers.actions") %></th>
     </tr>
   </thead>
   <tbody>
     <% @todo_lists.each do |todo_list| %>
-      <tr>
+      <tr id="<% dom_id(todo_list) %>">
         <td><%= link_to todo_list.id, todo_list_path(todo_list) %></td>
         <td><%= todo_list.title %></td>
         <td><%= todo_list.description %></td>
         <td><%= todo_list.created_at %></td>
-        <td>
+        <td class="hide" >
           <%= link_to t('.edit', :default => t("helpers.links.edit")),
                       edit_todo_list_path(todo_list), :class => 'btn btn-mini' %>
           <%= link_to  t('.destroy', :default => t("helpers.links.destroy")), 
@@ -29,7 +29,7 @@
                       :class => 'btn btn-mini btn-danger' %>
         </td>
       </tr>
-    <% end %>
+     <% end %>
   </tbody>
 </table>
 
